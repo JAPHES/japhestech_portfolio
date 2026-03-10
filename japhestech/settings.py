@@ -1,12 +1,16 @@
-﻿from pathlib import Path
+import os
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-change-this-in-production'
+SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-change-this-in-production")
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+VERCEL_URL = os.getenv("VERCEL_URL")
+if VERCEL_URL:
+    ALLOWED_HOSTS.append(VERCEL_URL)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,5 +71,8 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+CSRF_TRUSTED_ORIGINS = [f'https://{VERCEL_URL}'] if VERCEL_URL else []
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
