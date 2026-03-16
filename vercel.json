@@ -8,7 +8,6 @@
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
     { "src": "/(.*)", "dest": "/api/index.py" }
   ],
   "installCommand": "pip install -r requirements.txt",
@@ -17,6 +16,6 @@
     "DJANGO_SETTINGS_MODULE": "japhestech.settings",
     "SECRET_KEY": "your-secret-key",
     "DEBUG": "False",
-    "VERCEL_URL": "japhestech.vercel.app"
+    "VERCEL_URL": "japhestec.vercel.app"
   }
 }

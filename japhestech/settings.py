@@ -12,7 +12,8 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 VERCEL_URL = os.getenv("VERCEL_URL")
 if VERCEL_URL:
     ALLOWED_HOSTS.append(VERCEL_URL)
-ALLOWED_HOSTS += ["localhost", "127.0.0.1"]
+# allow all vercel preview domains and localhost
+ALLOWED_HOSTS += ["localhost", "127.0.0.1", ".vercel.app"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -82,5 +83,6 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CSRF_TRUSTED_ORIGINS = [f'https://{VERCEL_URL}'] if VERCEL_URL else []
+CSRF_TRUSTED_ORIGINS += ["https://*.vercel.app"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
