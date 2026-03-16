@@ -20,7 +20,7 @@
     }
   ],
   "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "python manage.py collectstatic --noinput",
+  "buildCommand": "python manage.py collectstatic --noinput --clear",
   "env": {
     "DJANGO_SETTINGS_MODULE": "japhestech.settings",
     "SECRET_KEY": "your-secret-key",
