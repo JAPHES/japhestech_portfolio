@@ -10,6 +10,15 @@
   "use strict";
 
   /**
+   * EmailJS configuration (set your actual IDs from emailjs.com)
+   */
+  const emailJsConfig = {
+    serviceId: 'service_03sfjof',
+    templateId: 'template_yswhtll',
+    publicKey: '-bQN0xF9wje-lqXdg'
+  };
+
+  /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {
@@ -45,6 +54,41 @@
     });
 
   });
+
+  /**
+   * Contact form submission with EmailJS
+   */
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm && window.emailjs) {
+    emailjs.init(emailJsConfig.publicKey);
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const loading = contactForm.querySelector('.loading');
+      const error = contactForm.querySelector('.error-message');
+      const success = contactForm.querySelector('.sent-message');
+
+      if (loading) loading.style.display = 'block';
+      if (error) error.style.display = 'none';
+      if (success) success.style.display = 'none';
+
+      emailjs.sendForm(emailJsConfig.serviceId, emailJsConfig.templateId, contactForm)
+        .then(() => {
+          if (loading) loading.style.display = 'none';
+          if (success) success.style.display = 'block';
+          contactForm.reset();
+        })
+        .catch((err) => {
+          if (loading) loading.style.display = 'none';
+          if (error) {
+            error.innerHTML = 'Message failed to send. Please try again.';
+            error.style.display = 'block';
+          }
+          console.error('EmailJS error:', err);
+        });
+    });
+  }
 
   /**
    * Preloader
