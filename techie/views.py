@@ -15,3 +15,7 @@ def service_details(request):
 
 def starter_page(request):
     return render(request, 'techie/starter-page.html')
+
+
+def certificates(request):
+    return render(request, 'techie/certificates.html')

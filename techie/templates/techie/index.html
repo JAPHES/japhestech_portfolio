@@ -53,6 +53,7 @@
           <li><a href="#hero" class="active">Home<br></a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="{% url 'techie:certificates' %}">Certificates</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -272,78 +273,43 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="service-thumb">
+                <img src="{% static 'techie/assets/img/portfolio/app-1.jpg' %}" alt="Web application development">
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Web Application Development</h3>
-              </a>
-              <p>Custom fullstack applications built for performance, security, and maintainability.</p>
+              <h3>Web Application Development</h3>
+              <p>End-to-end web apps crafted for speed, security, and maintainability across devices.</p>
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
+              <div class="service-thumb">
+                <img src="{% static 'techie/assets/img/services.jpg' %}" alt="UI and UX design">
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Backend API Engineering</h3>
-              </a>
-              <p>Design and implementation of robust APIs, authentication flows, and business logic.</p>
+              <h3>UI/UX Design</h3>
+              <p>Product-driven interfaces with clear hierarchy, accessibility, and polished visuals.</p>
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
+              <div class="service-thumb">
+                <img src="{% static 'techie/assets/img/portfolio/books-2.jpg' %}" alt="Mentorship and training">
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Frontend Engineering</h3>
-              </a>
-              <p>Responsive user interfaces using modern frontend tools and clean component structure.</p>
+              <h3>Mentorship & Training</h3>
+              <p>Hands-on coaching, code reviews, and workshops that grow practical engineering skills.</p>
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
+              <div class="service-thumb">
+                <img src="{% static 'techie/assets/img/portfolio/branding-2.jpg' %}" alt="Backend API engineering">
               </div>
-              <a href="#" class="stretched-link">
-                <h3>UI/UX Design</h3>
-              </a>
-              <p>Interface design that balances usability, accessibility, and visual consistency.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Code Review & Mentorship</h3>
-              </a>
-              <p>Mentoring developers on coding standards, debugging, and practical growth paths.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>System Architecture</h3>
-              </a>
-              <p>Scalable architecture planning for long-term product stability and team productivity.</p>
-              <a href="#" class="stretched-link"></a>
+              <h3>Backend API</h3>
+              <p>Reliable REST/JSON APIs with clean contracts, auth, logging, and deployment pipelines.</p>
             </div>
           </div><!-- End Service Item -->
 
