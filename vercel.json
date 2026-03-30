@@ -8,10 +8,11 @@
     }
   ],
   "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
     { "src": "/(.*)", "dest": "/api/index.py" }
   ],
   "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "python manage.py collectstatic --noinput --clear",
+  "buildCommand": "python manage.py collectstatic --noinput --clear && mkdir -p public/static && cp -r staticfiles/* public/static/",
   "env": {
     "DJANGO_SETTINGS_MODULE": "japhestech.settings",
     "SECRET_KEY": "your-secret-key",
