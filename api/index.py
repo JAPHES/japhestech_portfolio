@@ -25,7 +25,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "japhestech.settings")
 # Initialize the standard Django WSGI application
 django_app = get_wsgi_application()
 
-# Serve static files collected into STATIC_ROOT at the /static/ URL prefix
-# For Vercel, /public/static is served directly by the CDN; WhiteNoise here is a fallback only.
+# Serve static files collected into STATIC_ROOT at the /static/ URL prefix.
+# Vercel serves /public automatically; WhiteNoise stays as a fallback (e.g., previews).
 static_root = os.getenv("STATIC_ROOT", str(BASE_DIR / "public" / "static"))
 app = WhiteNoise(django_app, root=static_root, prefix="static/")
