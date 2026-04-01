@@ -76,16 +76,11 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'public' / 'static'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'techie' / 'static']
 
 if not DEBUG:
-    # On Vercel the static assets are hosted from /public and don't ship with the function bundle,
-    # so avoid manifest lookups that require the files at runtime.
-    if os.getenv("VERCEL", "0") == "1":
-        STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-    else:
-        STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CSRF_TRUSTED_ORIGINS = [f'https://{VERCEL_URL}'] if VERCEL_URL else []
 CSRF_TRUSTED_ORIGINS += ["https://*.vercel.app"]
