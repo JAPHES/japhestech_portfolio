@@ -26,6 +26,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "japhestech.settings")
 django_app = get_wsgi_application()
 
 # Serve static files collected into STATIC_ROOT at the /static/ URL prefix.
-# Using staticfiles keeps assets bundled with the serverless function.
-static_root = os.getenv("STATIC_ROOT", str(BASE_DIR / "staticfiles"))
+# Prefer the public static directory for faster delivery via Vercel's CDN.
+static_root = os.getenv("STATIC_ROOT", str(BASE_DIR / "public" / "static"))
 app = WhiteNoise(django_app, root=static_root, prefix="static/")
