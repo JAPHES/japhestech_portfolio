@@ -1037,7 +1037,10 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 85%), color-mix(in srgb, var(--accent-color), transparent 92%));
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+  border: 2px solid #d0e8ff;
+  position: relative;
+  transition: all 0.35s ease;
 }
 
 .services .service-item .service-thumb img {
@@ -1050,9 +1053,14 @@ section,
 }
 
 .services .service-item .service-thumb i {
-  font-size: 64px;
-  color: var(--accent-color);
+  font-size: 72px;
+  color: #0078ff;
+  line-height: 1;
   transition: all 0.35s ease;
+  text-shadow: 0 4px 12px rgba(0, 120, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .services .service-item .icon {
@@ -1083,13 +1091,19 @@ section,
   margin-bottom: 0;
 }
 
+.services .service-item:hover .service-thumb {
+  background: linear-gradient(135deg, #e6f2ff 0%, #d0e8ff 100%);
+  border-color: #0078ff;
+}
+
 .services .service-item:hover .service-thumb img {
   transform: scale(1.05);
 }
 
 .services .service-item:hover .service-thumb i {
-  transform: scale(1.1);
-  color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  transform: scale(1.15) rotate(5deg);
+  color: #0078ff;
+  text-shadow: 0 8px 16px rgba(0, 120, 255, 0.3);
 }
 
 @media (min-width: 1365px) {
