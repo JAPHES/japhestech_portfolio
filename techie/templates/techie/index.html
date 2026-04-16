@@ -10,7 +10,6 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{% static 'techie/assets/img/favicon.png' %}" rel="icon">
   <link href="{% static 'techie/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
   
   <!-- Dynamic Favicon with JM Initials -->
@@ -30,12 +29,14 @@
       ctx.font = 'bold 32px Poppins, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('JM', 32, 32);
+      ctx.fillText('BJ', 32, 32);
       
-      // Convert to favicon
+      // Replace any existing favicon links to avoid Bootstrap "B" icon fallback
+      document.querySelectorAll("link[rel*='icon']").forEach((node) => node.remove());
       const link = document.createElement('link');
       link.rel = 'icon';
-      link.href = canvas.toDataURL('image/x-icon');
+      link.type = 'image/png';
+      link.href = canvas.toDataURL('image/png');
       document.head.appendChild(link);
     })();
   </script>
