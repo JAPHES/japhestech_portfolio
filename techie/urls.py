@@ -15,7 +15,8 @@ urlpatterns = [
         {"sitemaps": {"static": StaticViewSitemap}},
         name="sitemap",
     ),
-    path("certificates/", views.certificates, name="certificates"),
+    # The certificates template and view are preserved but intentionally not public.
+    # path("certificates/", views.certificates, name="certificates"),
     path("portfolio-details/", views.portfolio_details, name="portfolio_details"),
     path("service-details/", views.service_details, name="service_details"),
     path("starter-page/", views.starter_page, name="starter_page"),
